@@ -8,9 +8,10 @@
     <script src="index.js" defer></script>
     <title>Trello</title>
 </head>
-<body>
+<body onload="carregar_cards()">
     <header class="cabeca">
         <p>Trello</p>
+        <button class="botao_salvar" onclick="salvar_cards()">Salvar</button>
     </header>
     <main>
         <section class="flexbox_cards">
