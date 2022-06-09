@@ -14,13 +14,31 @@ function criar_card(titulo){
     div_titulo.appendChild(titulo_card)
     corpo.appendChild(botao_adicionar_tarefa)
     flexbox_cards.appendChild(corpo)
-}
-function criar_tarefa(conteudo){
-    var div_conteudo = document.createElement("div");
-    var conteudo = document.createElement("p");
-    div_conteudo.classList.add("conteudo_card")
-    conteudo.innerHTML = conteudo
-    div_conteudo.appendChild(conteudo)
+
+    botao_adicionar_tarefa.addEventListener("click", function(){
+        var div = document.createElement("div")
+        var input = document.createElement("input")
+        var botao_criar_tarefa = document.createElement("button")
+        botao_criar_tarefa.innerHTML = "Criar tarefa"
+        div.classList.add("modal_criar_tarefa")
+        input.classList.add("input_criar_tarefa")
+        botao_criar_tarefa.classList.add("botao_criar_tarefa")
+        div.appendChild(input)
+        div.appendChild(botao_criar_tarefa)
+        this.parentNode.insertBefore(div, botao_adicionar_tarefa)
+        
+        botao_criar_tarefa.addEventListener("click", function(){
+            if(input.value !== ""){
+                var elemento = document.createElement("div")
+                var conteudo = document.createElement("li")
+                elemento.classList.add("conteudo_card")
+                conteudo.innerHTML = input.value
+                elemento.appendChild(conteudo)
+                corpo.insertBefore(elemento, botao_adicionar_tarefa)
+                corpo.removeChild(div)
+            }
+        })
+    })
 }
 function criar_modal_para_card(){
     var corpo = document.createElement("div")
@@ -32,20 +50,16 @@ function criar_modal_para_card(){
     corpo.appendChild(titulo)
     corpo.appendChild(input)
     corpo.appendChild(botao_criar_card)
+    corpo.classList.add("modal_adicionar_card")
+    botao_criar_card.classList.add("botao_criar_card")
+    input.classList.add("input_criar_card")
     main_html.appendChild(corpo)
 
     botao_criar_card.addEventListener("click", function(){
         if(input.value !== ""){
-            criar_card(input.value) 
+            criar_card(input.value)
+            main_html.removeChild(corpo) 
         }else{ alert("campo de titulo vazio")}
     })
-}
-function criar_modal_para_tarefa(){
-    var div = document.createElement("div")
-    var input = document.createElement("input")
-    var botao_criar_tarefa = document.createElement("button")
-    botao_criar_tarefa.innerHTML = "Criar tarefa"
-    div.appendChild(input)
-    div.appendChild(botao_criar_tarefa)
 }
 
