@@ -6,7 +6,8 @@
 
 ## Projeto 🚀
 
-É um aplicação feita com o objetivo de simular a interface e as funcionalidades que o site de gestão ``TRELLO`` oferece aos seus usuários.<br>
+É um aplicação feita com o objetivo de simular a interface e as funcionalidades que o site de gestão ``TRELLO`` oferece aos seus usuários, os cards<br>
+serão salvados no ``Local storage`` do navegador e adicionados a página sempre que a página recarregar.
 
 ## Interface 🖥️
 
