@@ -19,4 +19,4 @@ serão salvados no ``Local storage`` do navegador e adicionados a página sempre
 -  ``CSS`` 
 
 ## Como acessar ✍️
-- https://samunogue.github.io/Clone_trello/src/index.html
+- https://samunogue.github.io/Clone_trello/src/clone.html
