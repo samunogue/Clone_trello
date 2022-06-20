@@ -9,9 +9,13 @@
 É um aplicação feita com o objetivo de simular a interface e as funcionalidades que o site de gestão ``TRELLO`` oferece aos seus usuários, os cards
 serão salvados no ``Local storage`` do navegador e adicionados a página sempre que a página recarregar.
 
-## Interface 🖥️
+## Funcionalidades 📝
+- Drag and Drop das tarefas que dá a opção de mudar a tarefa entre cards arrastando pela tela 
+- Salvamento automático
 
-![design_clone_trello](https://user-images.githubusercontent.com/84748999/172919357-90cacbf2-c8fd-4bb2-bb31-0e05f5833ef5.png)
+## Interface 🖥️
+![interface_clone_trello](https://user-images.githubusercontent.com/84748999/174679893-50334c94-dfa0-423a-8a13-244bcbcc4441.png)
+
 
 ## Tecnologias 🛠️
 - ``Javascript``
