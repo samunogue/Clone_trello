@@ -1,6 +1,7 @@
 var flexbox_cards = document.querySelector(".flexbox_cards")
 var main_html = document.querySelector("main")
 var botao_criar_modal_card = document.querySelector(".botao_adicionar_card")
+var menu = document.querySelector(".menu_config")
 var elementos; var dropzones
 
 function criar_modal_para_card() {
@@ -60,6 +61,7 @@ function criar_cards(titulo, array_tarefas) {
             elemento.setAttribute("draggable", "true")
             elemento.classList.add("conteudo_card")
             botao_excluir_tarefa.classList.add("botao_excluir_tarefa")
+            conteudo.classList.add("conteudo")
             conteudo.innerHTML = Element
             botao_excluir_tarefa.innerHTML = "x"
             elemento.appendChild(conteudo)
@@ -67,7 +69,8 @@ function criar_cards(titulo, array_tarefas) {
             conteudo_card.appendChild(elemento)
 
             botao_excluir_tarefa.addEventListener("click", function () {
-                conteudo_card.removeChild(this.parentElement)
+                var div_pai = elemento.parentElement
+                div_pai.removeChild(this.parentElement)
                 salvar_cards()
             })
         })
@@ -92,6 +95,7 @@ function criar_cards(titulo, array_tarefas) {
                 var botao_excluir_tarefa = document.createElement("button")
                 elemento.setAttribute("draggable","true")
                 elemento.classList.add("conteudo_card")
+                conteudo.classList.add("conteudo")
                 botao_excluir_tarefa.classList.add("botao_excluir_tarefa")
                 botao_excluir_tarefa.innerHTML = "x"
                 conteudo.innerHTML = input.value
@@ -182,4 +186,47 @@ function dragleave() {
 function drop() {
 }
 
-
+function configuracoes(){
+    var botao_salvar_config = document.querySelector(".botao_salvar_config")
+    menu.style.display = "flex"
+    function cor_card(){
+        var cor_card = document.querySelector(".cor_card").value
+        document.documentElement.style.setProperty('--cor_card', cor_card)
+        document.querySelector(".cor_card").value = cor_card
+    }
+    function modo_noturno(){
+        var checkbox = document.querySelector(".modo_escuro")
+        if(checkbox.checked){
+            document.documentElement.style.setProperty('--cor_fonte', "#FFFFFF")
+            document.documentElement.style.setProperty('--cor_cabecalho', "#000000")
+            document.documentElement.style.setProperty('--cor_background', "#716A6A")
+            document.documentElement.style.setProperty('--cor_background_botao', "#9766B6")
+            document.documentElement.style.setProperty('--cor_cabeca_card', "#A3A3A3")
+            document.documentElement.style.setProperty('--cor_fonte_input', "#000000")
+            document.documentElement.style.setProperty('--cor_background_modal', "#210235")
+        }else{
+            document.documentElement.style.setProperty('--cor_fonte', "black")
+            document.documentElement.style.setProperty('--cor_cabecalho', "#CBACDE")
+            document.documentElement.style.setProperty('--cor_background', "#FFEFFB")
+            document.documentElement.style.setProperty('--cor_background_botao', "#CBCFF8")
+            document.documentElement.style.setProperty('--cor_cabeca_card', "#FFFFFF")
+            document.documentElement.style.setProperty('--cor_fonte_input', "black")
+            document.documentElement.style.setProperty('--cor_background_modal', "#D5ACF0")
+        }
+    }
+    function espacamento_card(){
+        var espaco_card = document.querySelector(".espaco_card").value
+        document.documentElement.style.setProperty('--espacamento_card', espaco_card+"vw")
+    }
+    function espacamento_tarefa(){
+        var espaco_tarefa = document.querySelector(".espaco_tarefa").value
+        document.documentElement.style.setProperty('--espacamento_tarefa', espaco_tarefa+"vh")
+    }
+    botao_salvar_config.addEventListener("click", function(){
+        cor_card()
+        espacamento_card()
+        espacamento_tarefa()
+        modo_noturno()
+        menu.style.display = "none"
+    })
+}

@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="clone.css" type="text/css">
     <script src="clone.js" defer></script>
+    <script src="https://kit.fontawesome.com/641d3a5ba7.js" crossorigin="anonymous"></script>
     <title>Trello</title>
 </head>
 <body onload="carregar_cards()">
     <header class="cabeca">
         <p>Trello</p>
+        <button class="botao_config" onclick="configuracoes()"><i class="fa-solid fa-sliders icone"></i></button>
     </header>
     <main>
         <section class="flexbox_cards">
             <button class="botao_adicionar_card" onclick="criar_modal_para_card()">+</button>
+            <div class="menu_config">
+                <div class="secao_config">
+                    <label for="cor_card">Cor do Card:</label>
+                    <input type="color" name="cor_card" class="cor_card" value="#ECC5C5">
+                </div>
+                <div class="secao_config">
+                    <label for="modo_escuro">Modo escuro:</label>
+                    <input type="checkbox" name="modo_escuro" class="modo_escuro">
+                </div>
+                <div class="secao_config">
+                    <label for="espaco_card">Espaçamento entre cards:</label>
+                    <input type="range" min="0" max="5" value="1" name="espaco_card" class="espaco_card">
+                </div>
+                <div class="secao_config">
+                    <label for="espaco_tarefa">Espaçamento entre tarefas:</label>
+                    <input type="range" min="0" max="10" value="0" name="espaco_tarefa" class="espaco_tarefa" >
+                </div>
+                <button class="botao_salvar_config">Salvar</button>
+            </div>
         </section>
     </main>
 </body>
